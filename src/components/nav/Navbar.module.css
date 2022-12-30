@@ -1,0 +1,10 @@
+.navbar {
+  display: flex;
+}
+.navbar ul {
+  display: flex;
+}
+
+.button-container {
+  margin-left: auto;
+}/*# sourceMappingURL=Navbar.module.css.map */

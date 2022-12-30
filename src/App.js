@@ -1,25 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import stl from './styles/App.scss'
 
+import Navbar from 'components/nav/Navbar'
+import Hero from './components/hero/Hero'
+import Form from 'components/form/Form'
+import Advance from 'components/advance/Advance'
+import StatisticCard from 'components/statistic/statisticCard'
+import Boost from 'components/boost/Boost'
+import Footer from 'components/footer/Footer'
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <>
+      <header>
+        <Navbar />
+        <Hero />
       </header>
-    </div>
-  );
+      <main className={stl.main}>
+        <Form />
+        <Advance />
+        <StatisticCard />
+        <Boost />
+      </main>
+      <Footer />
+    </>
+  )
 }
 
-export default App;
+export default App

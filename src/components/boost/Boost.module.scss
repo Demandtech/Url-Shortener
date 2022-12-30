@@ -1,0 +1,36 @@
+@use '../../styles/common.scss';
+
+$VeryDarkViolet: hsl(260, 8%, 14%);
+$Gray: hsl(0, 0%, 75%);
+$GrayishViolet: hsl(257, 7%, 63%);
+$DarkViolet: hsl(257, 27%, 26%);
+
+@mixin mobile {
+  @media (max-width: 426px) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (max-width: 769px) {
+    @content;
+  }
+}
+
+.boostContainer{
+ text-align: center;
+ padding: 40px 0;
+ background: url(../../asset/images/bg-boost-desktop.svg) $DarkViolet;
+ margin-top: 80px;
+
+ @include mobile(){
+  padding: 70px 0;
+ }
+
+ h2{
+  color: hsl(100, 100%, 100%);
+  padding-bottom: 20px;
+  letter-spacing: 1px;
+  font-size: 25px;
+ }
+}

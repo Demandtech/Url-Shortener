@@ -1,0 +1,30 @@
+h1 {
+  color: red;
+  font-size: 20px;
+}
+
+#nested {
+  background-color: #c1c1c1;
+}
+#nested h3 {
+  color: green;
+}
+
+.interpolation {
+  font-size: 25px;
+  font-weight: bold;
+  color: blue;
+}
+
+#function {
+  background-color: #661a66;
+}
+#function h3 {
+  color: white;
+}
+
+#mixin p {
+  padding: 20px;
+  font-size: 16px;
+  font-weight: bold;
+}/*# sourceMappingURL=App.css.map */

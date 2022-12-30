@@ -1,0 +1,123 @@
+@use '../../styles/common.scss';
+
+$VeryDarkViolet: hsl(260, 8%, 14%);
+$Gray: hsl(0, 0%, 75%);
+$GrayishViolet: hsl(257, 7%, 63%);
+$DarkViolet: hsl(257, 27%, 26%);
+$white: hsl(100, 100%, 100%);
+$Cyan: hsl(180, 66%, 49%);
+
+@mixin mobile {
+  @media (max-width: 426px) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (max-width: 769px) {
+    @content;
+  }
+}
+
+
+
+.urlContainer {
+  padding-top: 80px;
+
+  width: 100%;
+
+  @include tablet() {
+  }
+
+  @include mobile() {
+    padding-top: 100px;
+  }
+
+  li {
+    display: flex;
+    justify-content: space-between;
+    background: $white;
+    align-items: center;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+
+    @include tablet() {
+      flex-wrap: wrap;
+    }
+
+    @include mobile() {
+      padding: 15px 0;
+    }
+
+    .longUrl {
+      width: 100%;
+
+      p {
+        word-wrap: break-word;
+        font-size: 18px;
+      }
+
+      @include mobile() {
+        border-bottom: 1px solid $Gray;
+        padding: 0 15px 10px 15px;
+      }
+    }
+
+    .shortUrl {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+
+      @include tablet(){
+       width: 100%;
+       justify-content: space-between;
+      }
+
+      @include mobile() {
+        width: 100%;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0 15px;
+      }
+
+      .btn {
+        border-radius: 5px;
+        padding: 7px 15px;
+
+        &:hover {
+          opacity: 1;
+          
+        }
+
+        &:active {
+          background: $VeryDarkViolet;
+        }
+
+        @include mobile() {
+          width: 100%;
+        }
+      }
+      input {
+        color: $Cyan;
+        font-size: 18px;
+        border: none;
+
+        &:focus {
+          outline: none;
+        }
+
+
+        @include mobile() {
+          margin-top: 10px;
+        }
+      }
+
+      
+    }
+  }
+}
+
+.copied {
+  background-color: $VeryDarkViolet;
+}

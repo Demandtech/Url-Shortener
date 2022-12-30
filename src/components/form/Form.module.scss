@@ -1,0 +1,111 @@
+@use '../../styles/common.scss';
+
+$VeryDarkViolet: hsl(260, 8%, 14%);
+$Gray: hsl(0, 0%, 75%);
+$GrayishViolet: hsl(257, 7%, 63%);
+$DarkViolet: hsl(257, 27%, 26%);
+$Cyan: hsl(180, 66%, 49%);
+$white: hsl(100, 100%, 100%);
+$Red : hsl(0, 87%, 67%);
+
+@mixin mobile {
+  @media (max-width: 426px) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (max-width: 769px) {
+    @content;
+  }
+}
+
+.form {
+  position: relative;
+  width: 100%;
+  padding: 0 100px;
+
+  @include tablet() {
+    padding: 0 30px;
+  }
+  @include mobile() {
+    // padding-bottom: 50px;
+  }
+}
+
+.container {
+  position: absolute;
+  top: -50px;
+  left: 0;
+  right: 0;
+
+  form {
+    display: flex;
+    gap: 15px;
+    width: 100%;
+    padding: 25px;
+    background: url(../../asset/images/bg-shorten-desktop.svg) no-repeat
+      $DarkViolet;
+    border-radius: 10px;
+
+    .textInput {
+      width: 80%;
+
+      input {
+        padding: 16px 25px;
+        border: none;
+        margin-bottom: 5px;
+        border-radius: 5px;
+        width: 100%;
+      }
+
+      .inputError {
+        border: 2px solid $Red;
+
+        &::placeholder {
+          color: $Red;
+        }
+      }
+
+      @include mobile() {
+        width: 100%;
+      }
+    }
+
+    .submitbtn {
+      width: 20%;
+
+      .btn {
+        padding: 15px 25px;
+        border-radius: 5px;
+        width: 100%;
+      }
+
+      @include mobile() {
+        width: 100%;
+      }
+    }
+    @include mobile() {
+      flex-direction: column;
+    }
+  }
+
+  @include mobile() {
+    top: -80px;
+  }
+}
+
+.errorMessage {
+  font-style: italic;
+  color: hsl(0, 87%, 67%);
+  font-size: 14px;
+}
+
+.Error {
+  border: 2px solid hsl(0, 87%, 67%);
+
+  &::placeholder {
+    color: hsl(0, 87%, 67%);
+  }
+}
+

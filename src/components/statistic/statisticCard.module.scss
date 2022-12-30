@@ -1,0 +1,106 @@
+@use '../../styles/common.scss';
+
+$VeryDarkViolet: hsl(260, 8%, 14%);
+$Gray: hsl(0, 0%, 75%);
+$GrayishViolet: hsl(257, 7%, 63%);
+$DarkViolet: hsl(257, 27%, 26%);
+
+@mixin mobile {
+  @media (max-width: 426px) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (max-width: 769px) {
+    @content;
+  }
+}
+
+.container {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  position: relative;
+
+  > div {
+    padding: 20px;
+    position: relative;
+    background: hsl(100, 100%, 100%);
+    border-radius: 8px;
+
+    &:nth-child(3) {
+      margin-top: 55px;
+
+      @include tablet() {
+        margin-top: 0;
+      }
+    }
+
+    &:nth-child(4) {
+      margin-top: 110px;
+      @include tablet() {
+        margin-top: 0;
+      }
+    }
+
+    h3 {
+      padding: 20px 0 10px 0;
+      color: $DarkViolet;
+    }
+
+    p {
+      color: $GrayishViolet;
+      line-height: 1.7;
+    }
+  }
+
+  @include tablet() {
+    flex-direction: column;
+    gap: 60px;
+  }
+
+  @include mobile() {
+    text-align: center;
+  }
+}
+
+.underline {
+  height: 5px;
+  position: absolute;
+  transform: translateY(-50%);
+  top: 50%;
+  right: 100px;
+  left: 100px;
+  background-color: hsl(180, 66%, 49%);
+
+  @include tablet() {
+    width: 5px;
+    height: 100%;
+    left: 50%;
+    transform: translateY(-50%);
+    // left: 30px;
+    // right: 30px;
+  }
+}
+
+.img {
+  position: absolute;
+  top: 0;
+  background: $DarkViolet;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  top: -30px;
+
+  @include mobile() {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  img {
+    transform: scale(0.5);
+    object-position: center;
+    width: 100%;
+  }
+}

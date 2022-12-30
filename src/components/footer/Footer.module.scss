@@ -1,0 +1,68 @@
+@use '../../styles/common.scss';
+
+$VeryDarkViolet: hsl(260, 8%, 14%);
+$Gray: hsl(0, 0%, 75%);
+$GrayishViolet: hsl(257, 7%, 63%);
+$DarkViolet: hsl(257, 27%, 26%);
+
+@mixin mobile {
+  @media (max-width: 426px) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (max-width: 769px) {
+    @content;
+  }
+}
+
+.footer {
+  background: $VeryDarkViolet;
+  padding: 50px 0;
+
+  .container {
+   display: flex;
+   justify-content: space-between;
+   align-items: flex-start;
+
+   ul {
+    @include mobile() {
+     margin: 20px 0;
+    }
+   }
+
+   li {
+    color: $Gray;
+    list-style-type: none;
+    margin-bottom: 10px;
+
+    &:nth-child(1) {
+     font-weight: 800;
+     margin-bottom: 15px;
+     color: hsl(100, 100%, 100%);
+    }
+
+    @include mobile(){
+     text-align: center;
+    }
+   }
+
+   @include mobile() {
+    flex-direction: column;
+    align-items: center;
+   }
+  }
+  svg  path{
+   fill : hsl(100, 100%, 100%)
+  }
+
+  .socialIcons {
+   display: flex;
+   gap: 20px ;
+
+   @include mobile() {
+    align-items: center;
+   }
+  }
+}

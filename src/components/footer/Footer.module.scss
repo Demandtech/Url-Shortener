@@ -24,6 +24,7 @@ $DarkViolet: hsl(257, 27%, 26%);
   .container {
    display: flex;
    justify-content: space-between;
+   flex-wrap: wrap;
    align-items: flex-start;
 
    ul {

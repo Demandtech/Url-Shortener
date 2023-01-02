@@ -12,11 +12,8 @@ import { useState } from 'react'
 // };
 
 function Navbar() {
-  const [navOpen, setNavOpen] = useState(true)
+  const [navOpen, setNavOpen] = useState(false)
 
-  const handleNav = () => {
-    setNavOpen(navOpen)
-  }
   return (
     <nav className={stl.navbar}>
       <div className={stl.container}>
@@ -25,34 +22,36 @@ function Navbar() {
             <Logo />
           </div>
 
-          <button className="hamburgers" onClick={handleNav}>
+          <button className="hamburgers" onClick={() => setNavOpen(!navOpen)}>
             <FaBars className={stl.close} />
           </button>
         </div>
 
-        {navOpen ? (
-          <div className={stl.navContainer}>
-            <ul>
-              <li>
-                <a href="/">Features</a>
-              </li>
-              <li>
-                <a href="/">Pricing</a>
-              </li>
-              <li>
-                <a href="/">Resources</a>
-              </li>
-            </ul>
+        <div
+          className={
+            navOpen ? stl.navContainer : stl.navContainer + ' ' + stl.navOpen
+          }
+        >
+          <ul>
+            <li>
+              <a href="/">Features</a>
+            </li>
+            <li>
+              <a href="/">Pricing</a>
+            </li>
+            <li>
+              <a href="/">Resources</a>
+            </li>
+          </ul>
 
-            <div className={stl.btnContainer}>
-              <a href="/">Login</a>
+          <div className={stl.btnContainer}>
+            <a href="/">Login</a>
 
-              <a className={stl.btn} href="/">
-                Sign Up
-              </a>
-            </div>
+            <a className={stl.btn} href="/">
+              Sign Up
+            </a>
           </div>
-        ) : null}
+        </div>
       </div>
     </nav>
   )
